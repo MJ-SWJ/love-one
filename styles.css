@@ -1,0 +1,259 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* 修改背景颜色为白色 */
+    background-image: none; /* 删除背景渐变 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#riddle {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 5px; /* 调整按钮之间的水平间距 */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* 调整主界面容器宽度 */
+#main-container {
+    width: 80%;
+    max-width: 600px;
+}
+
+/* 新增题目背景框样式 */
+.riddle-box {
+    background-color: #f9f9f9; /* 浅灰色背景 */
+    border: 2px solid #ffffff; /* 灰色边框 */
+    padding: 20px 20px 20px 20px; /* 上下边界为15px，左右边界为20px */
+    border-radius: 8px; /* 圆角 */
+    margin-bottom: 15px; /* 底部间距 */
+    width: 97%; /* 调整宽度为界面容器的95% */
+    max-width: 600px; /* 增加最大宽度 */
+    font-size: 1.1em; /* 字体大小 */
+    height: auto; /* 自动高度 */
+}
+
+/* 新增颜色变化动画，增加更多颜色关键帧 */
+@keyframes colorChange {
+    0% { color: #ff6347; } /* 番茄红 */
+    10% { color: #ff4500; } /* 橙色 */
+    20% { color: #ffd700; } /* 金色 */
+    30% { color: #32cd32; } /* 绿色 */
+    40% { color: #4169e1; } /* 蓝色 */
+    50% { color: #8a2be2; } /* 紫色 */
+    60% { color: #ff6347; } /* 回到番茄红 */
+    70% { color: #ff4500; } /* 橙色 */
+    80% { color: #ffd700; } /* 金色 */
+    90% { color: #32cd32; } /* 绿色 */
+    100% { color: #4169e1; } /* 蓝色 */
+}
+
+/* 新增链接自动变色动画 */
+@keyframes linkColorChange {
+    0% { color: #ff6347; } /* 番茄红 */
+    10% { color: #ff4500; } /* 橙色 */
+    20% { color: #ffd700; } /* 金色 */
+    30% { color: #32cd32; } /* 绿色 */
+    40% { color: #4169e1; } /* 蓝色 */
+    50% { color: #8a2be2; } /* 紫色 */
+    60% { color: #ff6347; } /* 回到番茄红 */
+    70% { color: #ff4500; } /* 橙色 */
+    80% { color: #ffd700; } /* 金色 */
+    90% { color: #32cd32; } /* 绿色 */
+    100% { color: #4169e1; } /* 蓝色 */
+}
+
+/* 每日一言样式 */
+#quote {
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 20px;
+    text-align: center;
+    animation: colorChange 10s infinite; /* 调整动画持续时间为10秒 */
+}
+
+/* 修改样式：使按钮垂直排列 */
+.screen {
+    display: none; /* 默认隐藏 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen.active {
+    display: flex; /* 显示当前活动界面 */
+}
+
+#home-screen button, #game-screen button {
+    margin: 10px 0; /* 调整按钮之间的垂直间距 */
+}
+
+/* 团队界面样式 */
+#team-screen {
+    display: none; /* 默认隐藏，通过 JavaScript 控制显示 */
+    flex-direction: column; /* 子元素垂直排列 */
+    justify-content: center; /* 子元素在主轴上居中对齐 */
+    align-items: center; /* 子元素在交叉轴上居中对齐 */
+    padding: 20px; /* 内边距 */
+    background-color: #f9f9f9; /* 浅灰色背景色 */
+    border-radius: 8px; /* 圆角边框 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 阴影效果，增加立体感 */
+}
+
+/* 团队界面激活状态 */
+#team-screen.active {
+    display: flex; /* 显示团队界面 */
+}
+
+/* 团队界面标题样式 */
+#team-screen h1 {
+    color: #333; /* 标题文字颜色 */
+    margin-bottom: 20px; /* 底部外边距 */
+}
+
+/* 团队成员样式 */
+.team-member {
+    margin-bottom: 10px; /* 底部外边距 */
+    padding: 10px; /* 内边距 */
+    background-color: #fff; /* 白色背景 */
+    border-radius: 4px; /* 圆角边框 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+}
+
+/* 团队成员文字样式 */
+.team-member p {
+    margin: 0; /* 去除默认外边距 */
+    font-size: 1.1em; /* 字体大小 */
+    line-height: 1.5; /* 行高 */
+}
+
+.team-member strong {
+    font-weight: bold; /* 加粗显示 */
+    color: #333; /* 文字颜色 */
+}
+
+.team-member p::before {
+    content: "• "; /* 添加小圆点作为列表符号 */
+    color: #4CAF50; /* 圆点颜色 */
+}
+
+/* 团队界面按钮样式 */
+#team-screen button {
+    margin-top: 20px; /* 顶部外边距 */
+    padding: 10px 20px; /* 内边距 */
+    background-color: #4CAF50; /* 按钮背景色 */
+    color: white; /* 按钮文字颜色 */
+    border: none; /* 去除边框 */
+    border-radius: 4px; /* 圆角边框 */
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+}
+
+/* 团队界面按钮悬停效果 */
+#team-screen button:hover {
+    background-color: #45a049; /* 悬停时背景色变化 */
+}
+
+/* 应用动画到QQ链接 */
+.qq-link {
+    color: #4CAF50; /* 默认颜色 */
+    text-decoration: none;
+    font-size: 1em;
+    animation: linkColorChange 10s infinite; /* 使用动画 */
+}
+
+.qq-link:hover {
+    text-decoration: underline; /* 鼠标悬停时显示下划线 */
+}
+
+.qq-link-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* 与上方内容的间距 */
+}
+
+.qq-image {
+    width: 50px; /* 图片宽度 */
+    height: 50px; /* 图片高度 */
+    margin-right: 10px; /* 图片与链接之间的间距 */
+    border-radius: 50%; /* 圆形图片 */
+}
+
+.game-image {
+    width: 50px; /* 修改宽度 */
+    height: 50px; /* 修改高度 */
+    margin-left: -10px;
+}
+
+/* 新增样式：优化小彩蛋界面的排版 */
+#easter-egg-screen .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff; /* 添加白色背景 */
+    border-radius: 8px; /* 添加圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+}
+
+#easter-egg-screen h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #4CAF50; /* 使用绿色主题色 */
+}
+
+#easter-egg-screen button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#easter-egg-screen button:hover {
+    background-color: #45a049;
+}
