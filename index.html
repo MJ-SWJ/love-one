@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜灯谜小游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="main-container" class="container" style="width: 80%; max-width: 600px;">
+
+        <!-- 主界面 -->
+        <div id="home-screen" class="screen active">
+            <h1>猜灯谜小游戏</h1>
+            <!-- 新增分割线 -->
+            <hr style="width: 80%; margin: 10px auto; border: 1px solid #ddd;">
+            <button onclick="switchScreen('game')">开始游戏</button>
+            <button onclick="createRiddle()">创作者团队</button>
+            <!-- 新增分割线 -->
+            <hr style="width: 80%; margin: 10px auto; border: 1px solid #ddd;">
+            <!-- 添加每日一言 -->
+            <p id="quote" onclick="changeQuote()" style="cursor: pointer; font-size: 0.9em; margin-top: 20px;">
+                点击更换每日一言
+            </p>
+            <img src="images/n1.jpg" alt="猜灯谜图片" class="game-image">
+        </div>
+
+        <!-- 游戏界面 -->
+        <div id="game-screen" class="screen">
+            <p id="riddle" class="riddle-box"></p> <!-- 添加 riddle-box 类 -->
+            <input type="text" id="answer" placeholder="请输入您的答案">
+            <button onclick="checkAnswer()">确定答案</button>
+            <p id="result"></p>
+            <button onclick="nextRiddle()">下一个灯谜</button>
+            <button onclick="switchScreen('home')">结束游戏</button>
+        </div>
+
+        <!-- 添加创作者团队界面 -->
+        <div id="team-screen" class="screen">
+            <div class="content-wrapper">
+                <h1>超强团队</h1>
+                <!-- 新增分割线 -->
+                <hr style="width: 80%; margin: 10px auto; border: 1px solid #ddd;">
+                <div class="team-member">
+                    <p><strong>Leader:</strong> 叶荣 | <strong>Crew:</strong> 彭广平 覃波 宋文杰 淦兴盛 柯良禹</p>
+                </div>
+                <!-- 新增图片和链接 -->
+                <div class="qq-link-container">
+                    <img src="images/nan1.jpg" alt="图片" class="qq-image">
+                    <a href="https://qm.qq.com/q/39Wn5HoP6U" target="_blank" class="qq-link">我的QQ联系方式</a>
+                </div>
+                <button onclick="switchScreen('home')">返回主页</button>
+            </div>
+        </div>
+
+        <!-- 彩蛋 -->
+        <div id="easter-egg-screen" class="screen">
+            <div class="content-wrapper">
+                <h1>我也爱你❤️</h1>
+                <button onclick="switchScreen('home')">希望你也爱自己❤️</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
